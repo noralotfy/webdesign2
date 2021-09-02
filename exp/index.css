@@ -1,0 +1,59 @@
+.container {
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 200px;
+  height: 250px;
+}
+h1,h2,h3,h4,h5{font-family: 'Acme', sans-serif;
+}
+h1{
+  font-size: 65px;
+}
+h3{
+  font-size: 45px;
+}
+h1,h2, #red{
+color:#FF7959;
+}
+h3{
+  color: #FFC367;
+}
+.fadein{
+  opacity: 0;
+}
+#logo{
+  max-width: 50%;
+  max-height: 50%;
+}
+#mainNav{
+  background: #3D3B37;
+}
+.aura{
+  max-width: 90%;
+  max-height: 90%;
+}
+.home{
+  background-image:url("back-03.png") ;
+  background-color: #3D3B37 ;
+
+}
+.about{
+  background-image: url("back-05.png");
+  background-color: #3D3B37 ;
+}
+.tip{
+  background-image: url("back-06.png");
+  background-color: #3D3B37 ;
+}
+.ground{
+  background-image: url("back-04.png");
+  background-color: #3D3B37 ;
+}
+
+.hideme
+{
+    opacity:0;
+}
