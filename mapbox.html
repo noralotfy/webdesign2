@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Display a popup on click</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+<script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+<style>
+	body { margin: 0; padding: 0; }
+	#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+<style>
+    .mapboxgl-popup {
+        max-width: 400px;
+        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    }
+</style>
+<div id="map"></div>
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoibWhyMTIzNCIsImEiOiJja2VoNGNmMjMwN2cxMnhtcDhmczhkejk1In0.rV_j8ObNnxnglm1YuwdNtw';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-74.0060, 40.7128],
+        zoom: 11.15
+    });
+
+    map.on('load', function() {
+        map.addSource('places', {
+            'type': 'geojson',
+            'data': {
+                'type': 'FeatureCollection',
+                'features': [
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                                '<strong>American Museum of Natural History</strong><p><a href="https://www.amnh.org/" target="_blank" title="Opens in a new window">American Museum of Natural History</a> natural history museum on the Upper West Side of Manhattan, New York City</p>',
+                            'icon': 'volcano'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [-73.97408899999999, 40.780765]
+                        }
+                    },
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                                '<strong>Museum of Moving Image</strong><p><a href="http://www.movingimage.us/" target="_blank" title="Opens in a new window">Museum of Moving Image</a>,
+																  advances the understanding, enjoyment, and appreciation of the art, history, technique, and technology of film, television, and digital media by presenting exhibitions, education programs, significant moving-image works, and interpretive programs, and collecting and preserving moving-image related artifacts.</p>',
+                            'icon': 'cinema'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [-73.92397650000001,  40.756130999999996]
+                        }
+                    },
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                                '<strong>Museum of Modern Art</strong>
+																<p> At the
+																<a href="https://www.moma.org/" target="_blank"
+																title="Opens in a new window">Museum of Modern Art</a>
+																celebrate creativity, openness, tolerance, and generosity. See thought-provoking modern and contemporary artdiverse cultural, artistic, social, and political positions</p>',
+                            'icon': 'art-gallery'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [-73.97778149999999, 40.761409]
+                        }
+                    },
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                                '<strong>Museum of Comteporary African Diasporan Arts</strong>
+																<p>The <a href="https://mocada.org/" target="_blank"
+																title="Opens in a new window">Museum of Contemporary African Diasporan Arts (MoCADA)</a>
+																uses the visual and performing arts as a point of departure for exploring new artistic production across a variety of disciplines. Through exhibitions, community programming and educational initiatives centered in social justice, MoCADA incites dialogue on pressing social and political issues facing the African Diaspora and fosters a dynamic space for the creation and continuous evolution of culture.</p>',
+                            'icon': 'art-gallery'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [-73.97439800000001, 40.6853975]
+                        }
+                    },
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                                '<strong>Tenement Museum</strong><p>Feeling dandy?
+																 The
+																  <a href="https://www.tenement.org/"
+																	target="_blank" title="Opens in a new window">Tenement Museum</a>
+																	 is a National Historic Site. The Museum\'s two historical tenement buildings were home to an estimated 15,000 people, from over 20 nations, between 1863 and 2011.</p>',
+                            'icon': 'library'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [-73.989883, 40.718956]
+                        }
+                    },
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                                '<strong>Queens Museum</strong><p>The annual <a href="https://queensmuseum.org/"
+																 target="_blank" title="Opens in a new window">Queens Museum</a>
+																 is an art museum and educational center located in Flushing Meadows–Corona Park in the borough of Queens in New York City, United States.</p>',
+                            'icon': 'town-hall'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [-73.846707, 40.7458395]
+                        }
+                    },
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                                '<strong>New York Transit Museum</strong><p>The <a href="http://www.capitalpride.org/parade"
+																 target="_blank" title="Opens in a new window">New York Transit Museum</a>
+																  is a museum that displays historical artifacts of the New York City Subway, bus, and commuter rail systems in the greater New York City metropolitan region.</p>',
+                            'icon': 'rail'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [-73.989963, 40.690469]
+                        }
+                    },
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                                '<strong>El Museo Del Barrio</strong><p>
+																<a href="https://www.elmuseo.org/" target="_blank"
+																 title="Opens in a new window"><em>El Museo</em></a>
+																 welcomes visitors of all backgrounds to discover the artistic landscape of Latino, Caribbean, and Latin American cultures. Their richness is represented in El Museo’s wide-ranging collections and exhibitions, complemented by film, literary, visual and performing arts series, cultural celebrations, and educational programs.</p>',
+                            'icon': 'landmark'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [-73.95156700000001, 40.793269]
+                        }
+                    },
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                                '<strong>Noguchi Museum</strong><p><a href="https://www.noguchi.org/" target="_blank">Noguchi Museum</a>
+																 in Queens, New York, chartered as The Isamu Noguchi Foundation and Garden Museum,
+																 was designed and created by the Japanese-American sculptor Isamu Noguchi.</p>',
+                            'icon': 'art-gallery'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [-73.9390535, 40.7664475]
+                        }
+                    }
+                ]
+            }
+        });
+        // Add a layer showing the places.
+        map.addLayer({
+            'id': 'places',
+            'type': 'symbol',
+            'source': 'places',
+            'layout': {
+                'icon-image': '{icon}-15',
+                'icon-allow-overlap': true
+            }
+        });
+
+        // When a click event occurs on a feature in the places layer, open a popup at the
+        // location of the feature, with description HTML from its properties.
+        map.on('click', 'places', function(e) {
+            var coordinates = e.features[0].geometry.coordinates.slice();
+            var description = e.features[0].properties.description;
+
+            // Ensure that if the map is zoomed out such that multiple
+            // copies of the feature are visible, the popup appears
+            // over the copy being pointed to.
+            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+            }
+
+            new mapboxgl.Popup()
+                .setLngLat(coordinates)
+                .setHTML(description)
+                .addTo(map);
+        });
+
+        // Change the cursor to a pointer when the mouse is over the places layer.
+        map.on('mouseenter', 'places', function() {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+
+        // Change it back to a pointer when it leaves.
+        map.on('mouseleave', 'places', function() {
+            map.getCanvas().style.cursor = '';
+        });
+    });
+</script>
+
+</body>
+</html>
