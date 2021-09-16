@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simple DOM example</title>
+  </head>
+  <body>
+      <section>
+        <img src="dinosaur.png" alt="A red Tyrannosaurus Rex: A two legged dinosaur standing upright like a human, with small arms, and a large head with lots of sharp teeth.">
+        <p>Here we will add a link to the <a href="https://www.mozilla.org/">Mozilla homepage</a></p>
+      </section>
+      <script type="text/javascript">
+      var link = document.querySelector('a');
+      link.textContent = 'Mozilla Developer Network';
+      link.href = 'https://developer.mozilla.org';
+
+      var sect = document.querySelector('section');
+      var para = document.createElement('p');
+      var nor = document.createElement('p');
+      nor.textContent ='Hi world I am using javascript to manipulate DOM structure';
+      para.textContent = 'We hope you enjoyed the ride.';
+      sect.appendChild(para);
+      sect.appendChild(nor);
+var n =nor.style;
+n.color='	#9966ff';
+n.backgroundColor= ' #ffffe6';
+n.padding = '60px';
+n.width = '450px';
+n.textAlign = 'center';
+var p = para.style;
+p.color = 'red';
+p.backgroundColor = 'yellow';
+p.padding = '10px';
+p.width = '250px';
+p.textAlign = 'center';
+
+</script>
+  </body>
+</html>
